@@ -14,12 +14,22 @@ function cubeNumber(number) {
 
 // number : 2
 const stringTextOne = 'John Doe';
-//const stringTextTwo = 'ohn';
+const stringTextTwo = 'ohn';
 function matchFinder(string1, string2) {
-    
-    //const stringMatching = string2;
-    //if(string2.indexOf() !== -1)
+    if(typeof string1 !== 'string' || typeof string2 !== 'string'){
+        const msg = 'Please insert string input!!!';
+        return msg;
+    }else{
+        if(string1.includes(string2)){
+            return true;
+        }else{
+            return false;
+        } 
+    }   
 }
+const answer = matchFinder(stringTextOne,stringTextTwo);
+console.log(answer);
+
 
 // number : 3
 const stringArray = [2,3];
@@ -29,12 +39,12 @@ function sortMaker(arr) {
     for(let i=0; i < arr.length; i++){
         const index = i;
         const element = arr[index];
-        console.log(index,element);
-        if(element > bigToSmall){
-            const nw = newArray.push(element);
-            return nw;
-        }
+        const maxNum = Math.max(...element);
+        newArray.push(maxNum);
     }
+    const check = newArray.join(''); 
+    const strArr = check.split('');
+    return strArr;
 }
 const output = sortMaker(stringArray);
 console.log(output);
@@ -59,15 +69,21 @@ const smallAmoutTaka = [1,2,5]
 const chipsPrice = 10;
 function canPay(changeArray, totalDue) {
     let sumNumber = 0;
-    for(let i=0; i<changeArray.length; i++){
-        const index = i;
-        const element = changeArray[index];
-        sumNumber = sumNumber + element;
-    }
-    if(sumNumber > totalDue){
-        return false;
-    }
-    // return sumNumber;
+    if(changeArray.length === 0){
+        const msg = 'Do not provide empty array';
+        return msg;
+    }else{
+        for(let i=0; i<changeArray.length; i++){
+            const index = i;
+            const element = changeArray[index];
+            sumNumber = sumNumber + element;
+        }
+        if(sumNumber < totalDue){
+            return false;
+        }else{
+            return true;
+        }
+    }  
 }
 const totalChipsPrice = canPay(smallAmoutTaka,chipsPrice)
 console.log(totalChipsPrice);
