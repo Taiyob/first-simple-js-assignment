@@ -52,7 +52,23 @@ function findAddress(obj) {
 const totalOutput = findAddress(sampleObject);
 console.log(totalOutput);
 
+
+
 // number : 5
+const smallAmoutTaka = [1,2,5]
+const chipsPrice = 10;
 function canPay(changeArray, totalDue) {
+    let sumNumber = 0;
+    for(let i=0; i<changeArray.length; i++){
+        const index = i;
+        const element = changeArray[index];
+        sumNumber = sumNumber + element;
+    }
+    if(sumNumber > totalDue){
+        return false;
+    }
+    // return sumNumber;
 }
+const totalChipsPrice = canPay(smallAmoutTaka,chipsPrice)
+console.log(totalChipsPrice);
 
